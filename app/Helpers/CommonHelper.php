@@ -19,19 +19,11 @@ class CommonHelper
         return $randomString;
     }
 
-    public static function savePic($profileFile, $folder, $resizes = [])
+    public static function savePic($profileFile, $folder)
     {
         $extension = $profileFile->getClientOriginalExtension();
         $fileName = rand(11111, 99999) . '_' . time() . '.' . $extension;
         $profileFile->move(public_path($folder), $fileName);
-        $image = Image::make(public_path($folder . $fileName));
-        foreach ($resizes as $val) {
-            $width = $val['width'];
-            $height = $val['height'];
-            $image->resize($width, $height);
-            $name = $folder . $width . "x" . $height . "_" . $fileName;
-            $image->save(public_path($name));
-        }
         return $fileName;
     }
     public static function saveBase64Image($base64, $x=null ,$y=null,$width=null,$height=null){
@@ -74,5 +66,6 @@ class CommonHelper
     // }
 
 }
+
 
 

@@ -14,10 +14,10 @@ use Illuminate\Http\Request;
 */
 
 Route::post('/saveImage', 'ImageController@saveImage')->name('saveImage');
-Route::post('/uploadFile', 'ImageController@uploadFile')->name('uploadFile');
 
 Route::get('/getAllImages', 'ImageController@getAllImages')->name('getAllImages');
 
+Route::post('/uploadFile', 'ImageController@uploadFile')->name('uploadFile');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

@@ -53,9 +53,30 @@ class ImageController extends Controller
         }
 
     }
-    public fuction uploadFile(Request $request){
+    public function uploadFile(Request $request){
 
+    	$data = [];
+    	try {
+    		$data['image_name'] = CommonHelper::savePic($request->file('image'),'upload');
+    		$data['label'] = $request->label;
+    		$data['type']=1;
+    		//$save = ImageDatasMysql::saveImageData($data); // for mysql db
+    	 	$save = ImageData::saveImageData($data); // for mongo db
+    	 	return response()->json([
+                'success' => true,
+                'error' => '',
+                'data' => $save,
+            ], 200);
+
+    	} catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'error' => 'invalid_request',
+                'message' => "{$e->getMessage()}",
+            ], 401);
+        }
         
+
 
     }
 
