@@ -65,8 +65,6 @@ class ImageController extends Controller
                 $save = ImageData::saveImageData($data); // for mongo db
     			//$save = ImageDatasMysql::saveImageData($data);
     		}
-    		
-    		 // for mysql db
     	 
     	 	return response()->json([
                 'success' => true,

@@ -47,29 +47,6 @@ class CommonHelper
         return  $safeName;
 
     }
-    // public static function multipleFilesUpload($files,$folder)
-    // {
-    //     $data['videos']=null;
-    //     $data['images'] = null;
-    //     foreach($files as $file)
-    //     {
-    //         $extension = $file->getClientOriginalExtension();
-    //         if($extension=="jpeg" || $extension=="jpg" || $extension=="png"){
-
-    //             $name=rand(11111, 99999) . '_' . time() . '.' . $extension;
-    //             $file->move(public_path($folder), $name);  
-    //             $data['images'][]= $name ;
-    //         }
-    //         if($extension=="mp4" || $extension=="3gp" || $extension=="webm" || $extension=="ogx" || $extension=="oga" || $extension=="ogv" || $extension=="ogg") {
-
-    //             $name=rand(11111, 99999) . '_' . time() . '.' . $extension;
-    //             $file->move(public_path($folder), $name);  
-    //             $data['videos'][]=  $name ;
-    //         }
-
-    //     }
-    //     return $data;
-    // }
 
 }
 
