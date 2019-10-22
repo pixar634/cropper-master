@@ -57,15 +57,21 @@ class ImageController extends Controller
 
     	$data = [];
     	try {
-    		$data['image_name'] = CommonHelper::savePic($request->file('image'),'upload');
-    		$data['label'] = $request->label;
-    		$data['type']=1;
-    		//$save = ImageDatasMysql::saveImageData($data); // for mysql db
-    	 	$save = ImageData::saveImageData($data); // for mongo db
+    		$images = CommonHelper::savePic($request->file('image'),'upload');
+    		foreach ($images as $image) {
+    			$data['image_name'] = $image;  
+    			$data['label'] = $request->label;
+                $data['type']=1;
+                $save = ImageData::saveImageData($data); // for mongo db
+    			//$save = ImageDatasMysql::saveImageData($data);
+    		}
+    		
+    		 // for mysql db
+    	 
     	 	return response()->json([
                 'success' => true,
                 'error' => '',
-                'data' => $save,
+                'data' => '',
             ], 200);
 
     	} catch (\Exception $e) {

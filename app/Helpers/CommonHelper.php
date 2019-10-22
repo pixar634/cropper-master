@@ -19,12 +19,18 @@ class CommonHelper
         return $randomString;
     }
 
-    public static function savePic($profileFile, $folder)
+    public static function savePic($profileFiles, $folder)
     {
-        $extension = $profileFile->getClientOriginalExtension();
-        $fileName = rand(11111, 99999) . '_' . time() . '.' . $extension;
-        $profileFile->move(public_path($folder), $fileName);
-        return $fileName;
+        $val = [];
+        foreach($profileFiles as $profileFile)
+        {
+            $extension = $profileFile->getClientOriginalExtension();
+            $fileName = rand(11111, 99999) . '_' . time() . '.' . $extension;
+            $profileFile->move(public_path($folder), $fileName);
+            $val[]=$fileName;
+        }
+        return $val;
+
     }
     public static function saveBase64Image($base64, $x=null ,$y=null,$width=null,$height=null){
 
