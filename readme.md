@@ -14,3 +14,10 @@
 
 
 </ul>
+
+<p>
+    If using windows and xammp, download zip, paste it in <b>xammp>htdocs<b>, run on your localhost.
+    Make sure, you have mongodb driver installed for windows, in the php.ini file. and also, mongodb in general.
+
+
+</p>
